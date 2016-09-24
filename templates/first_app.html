@@ -5,9 +5,18 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>First App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<div>Hi, this is my first Flask web app!</div>
+{% from "_formhelpers.html" import render_field %}
+
+<div>What's your name?</div>
+<form method="post" action="/hello">
+    <dl>
+        {{ render_field(form.sayhello) }}
+    </dl>
+    <input type="submit" value='Say Hello' name="submit_btn">
+</form>
 </body>
 </html>
