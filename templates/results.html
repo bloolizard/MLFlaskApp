@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movie Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+
+<h3>Your movie review:</h3>
+<div>{{ content }}</div>
+
+<h3>Prediction:</h3>
+<div>This movie is <strong>{{ prediction }}</strong>
+(probability: {{ probability}}%.)</div>
+
+<div id="button">
+    <form action="/">
+        <input type="submit" value="Submit another review">
+    </form>
+</div>
+
+</body>
+</html>

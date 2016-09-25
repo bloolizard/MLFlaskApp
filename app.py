@@ -34,7 +34,7 @@ def sqlite_entry(path, document, y):
     conn.close()
 
 class ReviewForm(Form):
-    moviereview = TextAreaField('', validators.DataRequired(), validators.length(min=15))
+    moviereview = TextAreaField('', [validators.DataRequired(), validators.length(min=15)])
 
 class HelloForm(Form):
     sayhello = TextAreaField('', [validators.DataRequired()])
@@ -42,7 +42,7 @@ class HelloForm(Form):
 @app.route('/')
 def index():
     form = ReviewForm(request.form)
-    return render_template('first_app.html', form=form)
+    return render_template('reviewform.html', form=form)
 
 @app.route('/hello', methods=['POST'])
 def hello():
